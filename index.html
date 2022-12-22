@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>lol doggos</title>
+    <meta name="robots" content="noindex">
+</head>
+<body>
+<script src="https://hls-js-7b2d34bd-841e-4b02-a50a-7a24e015acb7.netlify.com/dist/hls.js"></script>
+
+<center>
+<select id ="ddl" name="ddl" onmousedown="this.value='';" onchange="jsFunction(this.value);">
+    <option value='https://5f594241d8f51.streamlock.net/live/238.stream/chunklist_w1280733186.m3u8'>Egypt 7</option>
+    <option value='https://5f594241d8f51.streamlock.net/live/26.stream/chunklist_w861542404.m3u8'>Africa 13</option>
+    <option value='https://5f594241d8f51.streamlock.net/live/148.stream/chunklist_w2017992011.m3u8'>Indoor 3</option>
+    <option value='https://5f594241d8f51.streamlock.net/live/88.stream/chunklist_w140663017.m3u8'>Indoor 4</option>
+    <option value='https://5f594241d8f51.streamlock.net/live/206.stream/chunklist_w558500336.m3u8'>Outdoor 3</option>
+    <option value='https://5f594241d8f51.streamlock.net/live/155.stream/chunklist_w1231135939.m3u8'>Outdoor 4</option>
+</select>
+</center>
+<center>
+    <h1>Wonder Pup and her sidekick Fluffy Puppy</h1>
+    <video width="800" autoplay playsinline controls id="video" controls></video>
+</center>
+
+<script>
+    if(Hls.isSupported()) {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        // Indoor 3 = https://5f594241d8f51.streamlock.net/live/148.stream/chunklist_w2017992011.m3u8
+        // Indoor 4 = https://5f594241d8f51.streamlock.net/live/88.stream/chunklist_w140663017.m3u8
+        // Outdoor 3 = https://5f594241d8f51.streamlock.net/live/206.stream/chunklist_w558500336.m3u8
+        // Outdoor 4 = https://5f594241d8f51.streamlock.net/live/155.stream/chunklist_w1231135939.m3u8
+        // Egypt 7 = https://5f594241d8f51.streamlock.net/live/238.stream/chunklist_w1280733186.m3u8
+        quelle = 'https://5f594241d8f51.streamlock.net/live/238.stream/chunklist_w1280733186.m3u8';
+        hls.loadSource(quelle);
+
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function() {
+            video.play();
+        });
+    }
+        // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
+        // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element throught the `src` property.
+    // This is using the built-in support of the plain video element, without using hls.js.
+    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = 'https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8';
+        video.addEventListener('canplay',function() {
+            video.play();
+        });
+    }
+</script>
+<script>
+    function jsFunction(value)
+    {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        hls.loadSource(value);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function() {
+            video.play();
+        });
+    }
+</script>
+
+<center>
+    <a href='https://5f594241d8f51.streamlock.net/live/148.stream/chunklist_w2017992011.m3u8'>Indoor 3</a>
+    <br />
+    <a href='https://5f594241d8f51.streamlock.net/live/88.stream/chunklist_w140663017.m3u8'>Indoor 4</a>
+    <br />
+    <a href='https://5f594241d8f51.streamlock.net/live/206.stream/chunklist_w558500336.m3u8'>Outdoor 3</a>
+    <br />
+    <a href='https://5f594241d8f51.streamlock.net/live/155.stream/chunklist_w1231135939.m3u8'>Outdoor 4</a>
+    <br />
+    <br />
+    <a href='https://5f594241d8f51.streamlock.net/live/238.stream/chunklist_w1280733186.m3u8'>Egypt 7</a>
+    <br />
+    <a href='https://5f594241d8f51.streamlock.net/live/26.stream/chunklist_w861542404.m3u8'>Africa 13</a>
+    <br />
+</center>
+
+</body>
+</html>
